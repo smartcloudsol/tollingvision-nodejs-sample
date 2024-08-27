@@ -41,6 +41,7 @@ function Sample() {
     }
     // Clearing the previous result
     setResult(undefined);
+    setError(undefined);
     // Create a search request
     const searchRequest = new SearchRequest();
     // Enable make and model recognition
@@ -80,6 +81,7 @@ function Sample() {
     call.on("error", (err) => {
       console.error("Search error:", err);
       setStatus(undefined);
+      setError(err.message);
     });
   }, [selectedFile]);
 
