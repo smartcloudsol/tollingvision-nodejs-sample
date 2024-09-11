@@ -142,7 +142,12 @@ function Sample() {
       result += " | " + plate.getCategory();
     }
     if (plate.getConfidence()) {
-      result += " (" + plate.getConfidence() + "%)";
+      result +=
+        " (text: " +
+        plate.getTextConfidence() +
+        "%, state: " +
+        plate.getPlateTypeConfidence() +
+        "%)";
     }
     return result;
   }, []);
@@ -301,7 +306,10 @@ function Sample() {
                 {
                   <p className="result-item">
                     {vehicle.getPlate()
-                      ? renderPlate(vehicle.getPlate() as Plate)
+                      ? renderPlate(vehicle.getPlate() as Plate) +
+                        (vehicle.getAlternativeList()
+                          ? ", possible alternatives:"
+                          : "")
                       : "No plate was recognized"}
                   </p>
                 }
