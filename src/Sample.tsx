@@ -143,6 +143,9 @@ function Sample() {
     }
     if (plate.getConfidence()) {
       result +=
+        " | " +
+        plate.getConfidence() +
+        "%" +
         " (text: " +
         plate.getTextConfidence() +
         "%, state: " +
@@ -225,7 +228,7 @@ function Sample() {
       <h1>Tolling Vision Sample</h1>
       <div className="card">
         <label htmlFor="photo" className="custom-file-upload">
-          {imageUrl ? "Change image" : "Upload an image"}
+          {imageUrl ? "Change image" : "Select an image"}
         </label>
         <input
           style={{ width: "1px", height: "1px" }}
@@ -307,7 +310,7 @@ function Sample() {
                   <p className="result-item">
                     {vehicle.getPlate()
                       ? renderPlate(vehicle.getPlate() as Plate) +
-                        (vehicle.getAlternativeList()
+                        (vehicle.getAlternativeList()?.length
                           ? ", possible alternatives:"
                           : "")
                       : "No plate was recognized"}
