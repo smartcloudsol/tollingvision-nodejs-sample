@@ -162,6 +162,9 @@ function Sample() {
       makeAndModel = mmr.getMake();
       if (mmr.getModel()) {
         makeAndModel += " " + mmr.getModel();
+        if (mmr.getGeneration()) {
+          makeAndModel += " " + mmr.getGeneration();
+        }
       }
     }
     let additionalInfo = mmr.getColor() ? mmr.getColor().toLowerCase() : null;
