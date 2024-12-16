@@ -1,6 +1,6 @@
 {
   "name": "@smart-cloud/tollingvision-nodejs-sample",
-  "version": "2.3.0",
+  "version": "2.5.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@smart-cloud/tollingvision": "^2.4.1",
+    "@smart-cloud/tollingvision": "^2.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

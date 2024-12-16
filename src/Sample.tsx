@@ -167,7 +167,7 @@ function Sample() {
         }
       }
     }
-    let additionalInfo = mmr.getColor() ? mmr.getColor().toLowerCase() : null;
+    let additionalInfo = mmr.getColorName()?.toLowerCase();
 
     let color = null;
     if (mmr.getCategory()) {
