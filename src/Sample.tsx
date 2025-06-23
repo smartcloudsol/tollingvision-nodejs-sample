@@ -22,7 +22,7 @@ The only required parameter is the address of the Tolling Vision dockerized serv
 in the format PROTOCOL://HOST[:PORT]. 
 Here, HOST is the hostname or IP address and the optional PORT is the exposed TCP port of the application, e.g., http://127.0.0.1:8080.
 */
-const client = new TollingVisionServiceClient("http://127.0.0.1");
+const client = new TollingVisionServiceClient("http://localhost");
 
 function Sample() {
   const [selectedFile, setSelectedFile] = useState<File>();
@@ -192,6 +192,24 @@ function Sample() {
     if (viewPoint) {
       additionalInfo =
         (additionalInfo ? additionalInfo + ", " : "") + viewPoint;
+    }
+
+    let dimensions = null;
+    if (mmr.getDimensions()) {
+      dimensions =
+        "width: " +
+        mmr.getDimensions()?.getWidth() +
+        "mm, " +
+        "height: " +
+        mmr.getDimensions()?.getHeight() +
+        "mm, " +
+        "length: " +
+        mmr.getDimensions()?.getLength() +
+        "mm";
+    }
+    if (dimensions) {
+      additionalInfo =
+        (additionalInfo ? additionalInfo + ", " : "") + dimensions;
     }
 
     if (additionalInfo) {
